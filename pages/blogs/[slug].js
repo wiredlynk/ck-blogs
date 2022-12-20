@@ -21,10 +21,6 @@ export async function getStaticProps({ params }) {
 }
 
 export default function PostPage({ blog }) {
-  if (!blog) {
-    notFound();
-  }
-
   return (
     <Layout>
       <Row
