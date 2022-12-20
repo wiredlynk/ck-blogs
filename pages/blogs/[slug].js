@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 
 import { allBlogs } from "contentlayer/generated";
 import { Layout, Row, Text, Mdx } from "~/components";
@@ -25,7 +24,6 @@ export default function PostPage({ blog }) {
   if (!blog) {
     notFound();
   }
-  console.log("🚀 ~ file: [slug].js:26 ~ PostPage ~ blog", blog);
 
   return (
     <Layout>
@@ -37,13 +35,10 @@ export default function PostPage({ blog }) {
           <Text variant="time">{blog.date}</Text>
           <Text variant="h1">{blog.title}</Text>
           {blog.image && (
-            <Image
+            <img
               src={blog.image}
               alt={blog.title}
-              width={1024}
-              height={1024}
               className="my-8 rounded-xl transition-colors group-hover:border-slate-900"
-              priority
             />
           )}
           <Mdx code={blog.body.code} />
